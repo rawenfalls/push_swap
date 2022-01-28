@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operation.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/27 23:32:31 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/27 23:32:31 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sa_sb(t_list **lst, int time, char q)
@@ -11,7 +23,7 @@ void	sa_sb(t_list **lst, int time, char q)
 		else
 			write(1, "sb\n", 3);
 		buf = (*lst);
-		(*lst)= (*lst)->next;
+		(*lst) = (*lst)->next;
 		buf->next = buf->next->next;
 		(*lst)->next = buf;
 	}
@@ -37,7 +49,7 @@ void	ra_rb(t_list **lst, int time, char q)
 			if ((buf1)->next == NULL)
 			{
 				(buf1)->next = buf;
-				break;
+				break ;
 			}
 			(buf1) = (buf1)->next;
 		}
@@ -70,7 +82,7 @@ void	rra_rrb(t_list **lst, int time, char q)
 	}
 }
 
-void	*pa_pb(t_list **lsta, t_list **lstb, int time, char q)
+void	pa_pb(t_list **lsta, t_list **lstb, int time, char q)
 {
 	t_list	*buf;
 
@@ -94,5 +106,16 @@ void	*pa_pb(t_list **lsta, t_list **lstb, int time, char q)
 			(*lsta) = buf;
 		}
 	}
+}
 
+void	clear_mem_lst(t_list **lst)
+{
+	t_list	*buf;
+
+	while (*lst)
+	{
+		buf = (*lst)->next;
+		free(*lst);
+		*lst = buf;
+	}
 }

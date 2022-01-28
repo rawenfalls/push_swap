@@ -1,6 +1,18 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   work_with_list.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/27 23:44:00 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/27 23:44:00 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-t_list	*ft_lstnew(int content)//создаёт эллимент списка
+#include "push_swap.h"
+/*создаёт эллимент списка*/
+t_list	*ft_lstnew(int content)
 {
 	t_list	*tmp;
 
@@ -13,14 +25,16 @@ t_list	*ft_lstnew(int content)//создаёт эллимент списка
 	return (tmp);
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)//добавляет новый эллимент в начало списка
+//добавляет новый эллимент в начало списка
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (*lst)
 		new->next = (*lst);
 	*lst = new;
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)//добавляет новый эллимент в конец списка
+//добавляет новый эллимент в конец списка
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
@@ -47,7 +61,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)//добавляет новый э
 // 	return (size);
 // }
 
-int	is_sorted(t_list *lst)//проверяет отсортирован ли массив
+//проверяет отсортирован ли массив
+int	is_sorted(t_list *lst)
 {
 	while (lst->next)
 	{
@@ -58,12 +73,13 @@ int	is_sorted(t_list *lst)//проверяет отсортирован ли м�
 	return (0);
 }
 
-void	print_t_list(t_list *tmp)//выводит все элементы списка и их идексы
+//выводит все элементы списка и их идексы
+void	print_t_list(t_list *tmp)
 {
-		while (tmp)
-		{
-			printf("|%d| index(%d)\n", tmp->content, tmp->index);
-			(tmp) = (tmp)->next;
-		}
-		printf("--------------\n");
+	while (tmp)
+	{
+		printf("|%d| index(%d)\n", tmp->content, tmp->index);
+		(tmp) = (tmp)->next;
+	}
+	printf("--------------\n");
 }

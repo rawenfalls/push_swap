@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeanuts <mpeanuts@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 19:02:18 by mpeanuts          #+#    #+#             */
-/*   Updated: 2021/10/19 19:02:19 by mpeanuts         ###   ########.fr       */
+/*   Created: 2022/01/27 23:35:29 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/27 23:35:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef	PUSH_SWAP_H
-# define	PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -37,12 +37,13 @@ void	swap(int *i, int *j);
 void	qs(int *arr, int first, int last);
 void	indexing(int argc, const char **argv, t_list *buf);
 void	four_sort(t_list **lsta, t_list **lstb, int size);
-void	*pa_pb(t_list **lsta, t_list **lstb, int time, char q);
+void	pa_pb(t_list **lsta, t_list **lstb, int time, char q);
 void	five_sort(t_list **lsta, t_list **lstb, int size);
 int		ft_atoi(const char *str);
 void	big_sort(t_list **lsta, t_list **lstb, int size, int q);
 void	lstb_to_lsta(t_list **lsta, t_list **lstb, int size);
 int		is_sorted(t_list *lst);
-void	raspred_chet(t_list **lsta, t_list **lstb, int i, int size, int q);
+void	big_sort_sl(t_list **lsta, t_list **lstb, t_list *buf, int i);
+void	clear_mem_lst(t_list **lst);
 
 #endif

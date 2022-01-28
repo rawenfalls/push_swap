@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/27 23:33:32 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/27 23:33:32 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_atoi(const char *str)
 {
 	long long	res;
-	int	sign;
+	int			sign;
 
 	res = 0;
 	sign = 1;
@@ -19,7 +31,7 @@ int	ft_atoi(const char *str)
 int	check_int(const char *str)
 {
 	long long	res;
-	int	sign;
+	int			sign;
 
 	res = 0;
 	sign = 1;
@@ -43,19 +55,20 @@ int	check_dublicate(int q, const char **argv)
 		if (q == ft_atoi(*argv))
 			return (1);
 	}
-	return 0;
+	return (0);
 }
 
 int	check_argv(const char **argv)
 {
-	char *e;
+	char	*e;
+
 	while (*++argv)
 	{
-		e = (char*)(*argv);
+		e = (char *)(*argv);
 		while (*e)
 		{
 			if ((*e < '0' || *e > '9') && *e != '-')
-				return 1;
+				return (1);
 			e++;
 		}
 		if (check_int(*argv) || check_dublicate(ft_atoi(*argv), argv))
@@ -67,7 +80,7 @@ int	check_argv(const char **argv)
 int	main(int argc, char const *argv[])
 {
 	t_list	*tmp;
-	int	i;
+	int		i;
 
 	if (check_argv(argv))
 		write(1, "Error\n", 7);
@@ -84,6 +97,7 @@ int	main(int argc, char const *argv[])
 			raspred_f((argc - 1), &tmp);
 		if (is_sorted(tmp))
 			write(1, "Error\n", 7);
+		clear_mem_lst(&tmp);
 	}
-	return 0;
+	return (0);
 }

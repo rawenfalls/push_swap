@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   two_to_five.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/27 23:41:44 by marvin            #+#    #+#             */
+/*   Updated: 2022/01/27 23:41:44 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	raspred_f(int size, t_list	**tmp)
@@ -6,7 +18,7 @@ void	raspred_f(int size, t_list	**tmp)
 
 	lstb = NULL;
 	if (size == 2)
-		write(1,"|sa|\n",5);
+		write(1, "|sa|\n", 5);
 	else if (size == 3)
 		three_sort(tmp);
 	else if (size == 4)
@@ -16,7 +28,7 @@ void	raspred_f(int size, t_list	**tmp)
 	else if (size <= 100)
 		big_sort(tmp, &lstb, size, 10);
 	else
-		big_sort(tmp, &lstb, size, 25);
+		big_sort(tmp, &lstb, size, 15);
 }
 
 void	three_sort(t_list	**tmp)
@@ -83,52 +95,10 @@ void	five_sort(t_list **lsta, t_list **lstb, int size)
 		i++;
 		buf = buf->next;
 	}
-		pa_pb(lsta, lstb, 1, 'a');
-		four_sort(lsta, lstb, size - 1);
-		pa_pb(lstb, lsta, 1, 'b');
-		ra_rb(lsta, 1, 'a');
-}
-
-
-
-
-void	big_sort(t_list **lsta, t_list **lstb, int size, int q)
-{
-	int	i;
-	t_list	*buf;
-	int	schet;
-
-	i = 0;
-	while (*lsta)
-	{
-		buf = *lsta;
-		schet = 0;
-		while (buf->index > (size / 10 + i))
-		{
-			buf = buf->next;
-			schet++;
-		}
-		if (schet <= (size - i) / 2)
-			ra_rb(lsta, schet, 'a');
-		else if (schet > (size - i) / 2)
-			rra_rrb(lsta, size - schet - i, 'a');
-	if (buf->index < i)
-	{
-		pa_pb(lsta, lstb, 1, 'b');
-		ra_rb(lstb, 1, 'b');
-	}
-	else
-	{
-		pa_pb(lsta, lstb, 1, 'b');
-		if ((*lstb)->next)
-		{
-			if ((*lstb)->index < (*lstb)->next->index)
-				sa_sb(lstb, 1, 'b');
-		}
-	}
-		i++;
-	}
-	lstb_to_lsta(lsta, lstb, size);
+	pa_pb(lsta, lstb, 1, 'a');
+	four_sort(lsta, lstb, size - 1);
+	pa_pb(lstb, lsta, 1, 'b');
+	ra_rb(lsta, 1, 'a');
 }
 
 void	lstb_to_lsta(t_list **lsta, t_list **lstb, int size)
