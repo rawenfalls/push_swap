@@ -74,9 +74,9 @@ void	four_sort(t_list **lsta, t_list **lstb, int size)
 		i++;
 		buf = buf->next;
 	}
-	pa_pb(lsta, lstb, 1, 'a');
+	pa_pb(lsta, lstb, 1, 'b');
 	three_sort(lsta);
-	pa_pb(lstb, lsta, 1, 'b');
+	pa_pb(lstb, lsta, 1, 'a');
 }
 
 void	five_sort(t_list **lsta, t_list **lstb, int size)
@@ -95,9 +95,9 @@ void	five_sort(t_list **lsta, t_list **lstb, int size)
 		i++;
 		buf = buf->next;
 	}
-	pa_pb(lsta, lstb, 1, 'a');
+	pa_pb(lsta, lstb, 1, 'b');
 	four_sort(lsta, lstb, size - 1);
-	pa_pb(lstb, lsta, 1, 'b');
+	pa_pb(lstb, lsta, 1, 'a');
 	ra_rb(lsta, 1, 'a');
 }
 
