@@ -18,7 +18,7 @@ void	raspred_f(int size, t_list	**tmp)
 
 	lstb = NULL;
 	if (size == 2)
-		write(1, "|sa|\n", 5);
+		sa_sb(tmp, 1, 'a');
 	else if (size == 3)
 		three_sort(tmp);
 	else if (size == 4)
