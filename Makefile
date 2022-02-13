@@ -13,7 +13,7 @@ FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 $(NAME): $(HDRS) $(OBJ)
-		$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+		$(CC) $(FLAGS) $(HDRS) $(OBJ) -o $(NAME)
 
 all: $(NAME)
 

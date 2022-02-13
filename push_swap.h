@@ -26,7 +26,7 @@ typedef struct s_list
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	raspred_f(int size, t_list	**tmp);
-void	three_sort(t_list	**tmp);
+void	three_sort(t_list	**tmp, int a);
 void	print_t_list(t_list *tmp);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	sa_sb(t_list **lst, int time, char q);
